@@ -22,4 +22,11 @@ class DateTimeComparer
         return $this->startDateTime->diffInDays($this->endDateTime);
     }
 
+    public function weekDaysBetween()
+    {
+        return $this->startDateTime->diffInDaysFiltered(function (Carbon $day) {
+            return $day->isWeekday();
+        }, $this->endDateTime);
+    }
+
 }
