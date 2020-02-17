@@ -13,11 +13,11 @@ class DateTimeComparer
 
     protected $resultFormat;
 
-    public function __construct($startDateTime, $endDateTime, $resultFormat = null)
+    public function __construct($startDateTime, $endDateTime, $startDateTimeZone = null, $endDateTimeZone = null, $resultFormat = null)
     {
-        $this->startDateTime = Carbon::parse($startDateTime);
+        $this->startDateTime = Carbon::parse($startDateTime, $startDateTimeZone);
 
-        $this->endDateTime = Carbon::parse($endDateTime);
+        $this->endDateTime = Carbon::parse($endDateTime, $endDateTimeZone);
 
         $this->resultFormat = $resultFormat;
     }
