@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/days_between', 'DaysBetweenController');
+
+Route::get('/week_days_between', 'WeekDaysBetweenController');
+
+Route::get('/complete_weeks_between', 'CompleteWeeksBetweenController');
+
