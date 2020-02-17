@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\CarbonInterval;
 use Illuminate\Support\Carbon;
 
 class DateTimeComparer
@@ -10,28 +11,55 @@ class DateTimeComparer
 
     protected $endDateTime;
 
-    public function __construct($startDateTime, $endDateTime)
+    protected $resultFormat;
+
+    public function __construct($startDateTime, $endDateTime, $resultFormat = null)
     {
         $this->startDateTime = Carbon::parse($startDateTime);
 
         $this->endDateTime = Carbon::parse($endDateTime);
+
+        $this->resultFormat = $resultFormat;
+    }
+
+    private function convertDaysToResultFormat($days)
+    {
+        return CarbonInterval::days($days)->total($this->resultFormat);
     }
 
     public function daysBetween()
     {
-        return $this->startDateTime->diffInDays($this->endDateTime);
+        $daysBetween = $this->startDateTime->diffInDays($this->endDateTime);
+
+        if ($this->resultFormat) {
+            return $this->convertDaysToResultFormat($daysBetween);
+        }
+
+        return $daysBetween;
     }
 
     public function weekDaysBetween()
     {
-        return $this->startDateTime->diffInDaysFiltered(function (Carbon $day) {
+        $weekDaysBetween = $this->startDateTime->diffInDaysFiltered(function (Carbon $day) {
             return $day->isWeekday();
         }, $this->endDateTime);
+
+        if ($this->resultFormat) {
+            return $this->convertDaysToResultFormat($weekDaysBetween);
+        }
+
+        return $weekDaysBetween;
     }
 
     public function completeWeeksBetween()
     {
-        return $this->startDateTime->diffInWeeks($this->endDateTime);
+        $completeWeeks = $this->startDateTime->diffInWeeks($this->endDateTime);
+
+        if ($this->resultFormat) {
+            return $this->convertDaysToResultFormat($completeWeeks * 7);
+        }
+
+        return $completeWeeks;
     }
 
 }

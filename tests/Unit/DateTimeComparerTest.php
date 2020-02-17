@@ -31,6 +31,46 @@ class DateTimeComparerTest extends TestCase
     }
 
     /** @test */
+    public function number_of_days_between_two_datetimes_as_seconds()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-07 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime, 'seconds');
+        $this->assertEquals(518400, $comparer->daysBetween());
+    }
+
+    /** @test */
+    public function number_of_days_between_two_datetimes_as_minutes()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-07 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime, 'minutes');
+        $this->assertEquals(8640, $comparer->daysBetween());
+    }
+
+    /** @test */
+    public function number_of_days_between_two_datetimes_as_hours()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-07 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime, 'hours');
+        $this->assertEquals(144, $comparer->daysBetween());
+    }
+
+    /** @test */
+    public function number_of_days_between_two_datetimes_as_years()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-07 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime, 'years');
+        $this->assertEquals(0.017857142857142856, $comparer->daysBetween());
+    }
+
+    /** @test */
     public function can_find_number_of_weekdays_between_two_datetimes()
     {
         $startDateTime = '2020-01-01 09:00';
@@ -53,6 +93,50 @@ class DateTimeComparerTest extends TestCase
     }
 
     /** @test */
+    public function number_of_weekdays_between_two_datetimes_as_seconds()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-07 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime, 'seconds');
+
+        $this->assertEquals(345600, $comparer->weekDaysBetween());
+    }
+
+    /** @test */
+    public function number_of_weekdays_between_two_datetimes_as_minutes()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-07 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime, 'minutes');
+
+        $this->assertEquals(5760, $comparer->weekDaysBetween());
+    }
+
+    /** @test */
+    public function number_of_weekdays_between_two_datetimes_as_hours()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-07 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime, 'hours');
+
+        $this->assertEquals(96, $comparer->weekDaysBetween());
+    }
+
+    /** @test */
+    public function number_of_weekdays_between_two_datetimes_as_years()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-07 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime, 'years');
+
+        $this->assertEquals(0.011904761904761904, $comparer->weekDaysBetween());
+    }
+
+    /** @test */
     public function can_find_number_of_complete_weeks_between_two_datetimes()
     {
         $startDateTime = '2020-01-01 09:00';
@@ -72,6 +156,50 @@ class DateTimeComparerTest extends TestCase
         $comparer = new DateTimeComparer($startDateTime, $endDateTime);
 
         $this->assertEquals(3, $comparer->completeWeeksBetween());
+    }
+
+    /** @test */
+    public function number_of_complete_weeks_between_two_datetimes_as_seconds()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-22 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime, 'seconds');
+
+        $this->assertEquals(1814400, $comparer->completeWeeksBetween());
+    }
+
+    /** @test */
+    public function number_of_complete_weeks_between_two_datetimes_as_minutes()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-22 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime, 'minutes');
+
+        $this->assertEquals(30240, $comparer->completeWeeksBetween());
+    }
+
+    /** @test */
+    public function number_of_complete_weeks_between_two_datetimes_as_hours()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-22 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime, 'hours');
+
+        $this->assertEquals(504, $comparer->completeWeeksBetween());
+    }
+
+    /** @test */
+    public function number_of_complete_weeks_between_two_datetimes_as_years()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-22 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime, 'years');
+
+        $this->assertEquals(0.0625, $comparer->completeWeeksBetween());
     }
 
 }
