@@ -29,4 +29,9 @@ class DateTimeComparer
         }, $this->endDateTime);
     }
 
+    public function completeWeeksBetween()
+    {
+        return $this->startDateTime->diffInWeeks($this->endDateTime);
+    }
+
 }

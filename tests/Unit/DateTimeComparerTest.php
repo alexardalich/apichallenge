@@ -30,4 +30,15 @@ class DateTimeComparerTest extends TestCase
         $this->assertEquals(4, $comparer->weekDaysBetween());
     }
 
+    /** @test */
+    public function can_find_number_of_complete_weeks_between_two_datetimes()
+    {
+        $startDateTime = '2020-01-01 09:00';
+        $endDateTime = '2020-01-22 09:00';
+
+        $comparer = new DateTimeComparer($startDateTime, $endDateTime);
+
+        $this->assertEquals(3, $comparer->completeWeeksBetween());
+    }
+
 }
