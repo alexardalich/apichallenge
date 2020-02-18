@@ -39,6 +39,24 @@ Run the dev server (the output will give the address): eg (http://127.0.0.1:8000
 php artisan serve
 ```
 
+## There are two implementations
+
+```
+1. set .env variable DATE_TIME_COMPARER=diff
+
+To use DateTime diff implementation.
+
+Initially did the Carbon implementation using its nice convenience methods.
+Decided to try a different implementation when verifying the 'years' format 
+as the Carbon version was not returning values consistent with online checks of day->year conversion
+```
+
+```
+2. set .env variable DATE_TIME_COMPARER=carbon
+
+To use Carbon implementation
+```
+
 
 ## The api endpoints available:
 (which can be hit via a browser, a request tool like Postman, or curl as GET requests)
