@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use App\CarbonDateTimeComparer;
+use App\DiffDateTimeComparer;
 use PHPUnit\Framework\TestCase;
 
-class CarbonDateTimeComparerTest extends TestCase
+class DiffDateTimeComparerTest extends TestCase
 {
 
     /** @test */
@@ -14,7 +14,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-07 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime);
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime);
 
         $this->assertEquals(6, $comparer->daysBetween());
     }
@@ -25,7 +25,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-07 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime);
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime);
 
         $this->assertEquals(6, $comparer->daysBetween());
     }
@@ -36,7 +36,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-07 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, null, null, 'seconds');
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, null, null, 'seconds');
         $this->assertEquals(518400, $comparer->daysBetween());
     }
 
@@ -46,7 +46,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-07 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, null, null, 'minutes');
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, null, null, 'minutes');
         $this->assertEquals(8640, $comparer->daysBetween());
     }
 
@@ -56,7 +56,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-07 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, null, null, 'hours');
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, null, null, 'hours');
         $this->assertEquals(144, $comparer->daysBetween());
     }
 
@@ -66,8 +66,8 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-07 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, null, null, 'years');
-        $this->assertEquals(0.017857142857142856, $comparer->daysBetween());
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, null, null, 'years');
+        $this->assertEquals(0.016427554484722374, $comparer->daysBetween());
     }
 
     /** @test */
@@ -76,7 +76,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-07 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime);
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime);
 
         $this->assertEquals(4, $comparer->weekDaysBetween());
     }
@@ -87,7 +87,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-07 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime);
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime);
 
         $this->assertEquals(4, $comparer->weekDaysBetween());
     }
@@ -98,7 +98,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-07 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, null, null, 'seconds');
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, null, null, 'seconds');
 
         $this->assertEquals(345600, $comparer->weekDaysBetween());
     }
@@ -109,7 +109,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-07 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, null, null, 'minutes');
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, null, null, 'minutes');
 
         $this->assertEquals(5760, $comparer->weekDaysBetween());
     }
@@ -120,7 +120,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-07 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, null, null, 'hours');
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, null, null, 'hours');
 
         $this->assertEquals(96, $comparer->weekDaysBetween());
     }
@@ -131,9 +131,9 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-07 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, null, null, 'years');
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, null, null, 'years');
 
-        $this->assertEquals(0.011904761904761904, $comparer->weekDaysBetween());
+        $this->assertEquals(0.010951702989814916, $comparer->weekDaysBetween());
     }
 
     /** @test */
@@ -142,7 +142,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-22 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime);
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime);
 
         $this->assertEquals(3, $comparer->completeWeeksBetween());
     }
@@ -153,7 +153,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-22 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime);
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime);
 
         $this->assertEquals(3, $comparer->completeWeeksBetween());
     }
@@ -164,7 +164,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-22 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, null, null, 'seconds');
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, null, null, 'seconds');
 
         $this->assertEquals(1814400, $comparer->completeWeeksBetween());
     }
@@ -175,7 +175,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-22 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, null, null, 'minutes');
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, null, null, 'minutes');
 
         $this->assertEquals(30240, $comparer->completeWeeksBetween());
     }
@@ -186,7 +186,7 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-22 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, null, null, 'hours');
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, null, null, 'hours');
 
         $this->assertEquals(504, $comparer->completeWeeksBetween());
     }
@@ -197,9 +197,9 @@ class CarbonDateTimeComparerTest extends TestCase
         $startDateTime = '2020-01-01 09:00';
         $endDateTime = '2020-01-22 09:00';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, null, null, 'years');
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, null, null, 'years');
 
-        $this->assertEquals(0.0625, $comparer->completeWeeksBetween());
+        $this->assertEquals(0.05749644069652831, $comparer->completeWeeksBetween());
     }
 
     /** @test */
@@ -210,14 +210,14 @@ class CarbonDateTimeComparerTest extends TestCase
         $endDateTime = '2020-01-02 06:00';
         $endDateTimeZone = 'Australia/Perth';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, $startDateTimeZone, $endDateTimeZone);
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, $startDateTimeZone, $endDateTimeZone);
 
         $this->assertEquals(0, $comparer->daysBetween());
 
         $endDateTime = '2020-01-02 06:30';
         $endDateTimeZone = 'Australia/Perth';
 
-        $comparer = new CarbonDateTimeComparer($startDateTime, $endDateTime, $startDateTimeZone, $endDateTimeZone);
+        $comparer = new DiffDateTimeComparer($startDateTime, $endDateTime, $startDateTimeZone, $endDateTimeZone);
 
         $this->assertEquals(1, $comparer->daysBetween());
     }

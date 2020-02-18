@@ -18,13 +18,13 @@ class DaysBetweenController extends Controller
     public function __invoke(DateTimeCompareRequest $request)
     {
         return new Resource([
-            (new DateTimeComparer(
-                $request->startDateTime,
-                $request->endDateTime,
-                $request->startDateTimeZone,
-                $request->endDateTimeZone,
-                $request->resultFormat
-            ))->daysBetween()
+            app()->makeWith(DateTimeComparer::class, [
+                'startDateTime' => $request->startDateTime,
+                'endDateTime' => $request->endDateTime,
+                'startDateTimeZone' => $request->startDateTimeZone,
+                'endDateTimeZone' => $request->endDateTimeZone,
+                'resultFormat' => $request->resultFormat,
+            ])->daysBetween()
         ]);
     }
 }

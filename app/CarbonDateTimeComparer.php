@@ -5,7 +5,7 @@ namespace App;
 use Carbon\CarbonInterval;
 use Illuminate\Support\Carbon;
 
-class DateTimeComparer
+class CarbonDateTimeComparer implements DateTimeComparer
 {
     protected $startDateTime;
 

@@ -18,13 +18,13 @@ class WeekDaysBetweenController extends Controller
     public function __invoke(DateTimeCompareRequest $request)
     {
         return new Resource([
-            (new DateTimeComparer(
-                $request->startDateTime,
-                $request->endDateTime,
-                $request->startDateTimeZone,
-                $request->endDateTimeZone,
-                $request->resultFormat
-            ))->weekDaysBetween()
+            app()->makeWith(DateTimeComparer::class, [
+                'startDateTime' => $request->startDateTime,
+                'endDateTime' => $request->endDateTime,
+                'startDateTimeZone' => $request->startDateTimeZone,
+                'endDateTimeZone' => $request->endDateTimeZone,
+                'resultFormat' => $request->resultFormat,
+            ])->weekDaysBetween()
         ]);
     }
 }
