@@ -28,8 +28,8 @@ class DateTimeCompareRequest extends FormRequest
     public function rules()
     {
         return [
-            'startDateTime' => 'required|date_format',
-            'endDateTime' => 'required|date_format',
+            'startDateTime' => 'required|date',
+            'endDateTime' => 'required|date',
             'startDateTimeZone' => 'timezone',
             'endDateTimeZone' => 'timezone',
             'resultFormat' => 'in:seconds,minutes,hours,years'
